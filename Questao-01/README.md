@@ -32,7 +32,7 @@ $ docker container run -d \
 
 #
 # POSTGRESQL
-# Criando o volume para persisitr os dados do banco PostgreSQL
+# Criando o volume para persistir os dados do banco PostgreSQL
 $ docker volume create postgre_vol
 
 # Criando a rede para o PostgreSql
