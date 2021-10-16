@@ -18,13 +18,13 @@ mongo:4.4.3
 
 # MARIADB
 # Criando volume para persistir os dados do banco
-docker volume create mariadb_vol
+$ docker volume create mariadb_vol
 
 # Criando a rede para o MariaDB
-docker network create mariadb_net
+$docker network create mariadb_net
 
 # Criando o container MariaDB
-docker container run -d \
+$ docker container run -d \
 -p 3306:3306 \
 --name mariadb \
 -v mariadb_vol:/var/lib/mysql \
@@ -32,13 +32,13 @@ docker container run -d \
 
 # POSTGRESQL
 # Criando o volume para persisitr os dados do banco
-docker volume create postgre_vol
+$ docker volume create postgre_vol
 
 # Criando a rede para o PostgreSql
-docker network create postgre_net
+$ docker network create postgre_net
 
 # Crinado o conatiner PostgreSQL
-docker run  -d \
+$ docker run  -d \
 --name postgresql \
 -p 5432:5432 \
 -v postgre_vol:/var/lib/postgresql/data \
@@ -47,13 +47,13 @@ docker run  -d \
 
 # REDIS
 # Criando o volume para persistir os dados do banco
-docker volume create redis_vol
+$ docker volume create redis_vol
 
 # Criando a rede para o Redis
-docker network create redis_net
+$ docker network create redis_net
 
 # Criando o container Redis
-docker run -d \
+$ docker run -d \
 --name redisdb \
 -p 6379:6379 \
 -v redis_vol:/data \
