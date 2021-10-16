@@ -30,7 +30,7 @@ $ docker container run -d \
 -v mariadb_vol:/var/lib/mysql \
 -e MARIADB_ROOT_PASSWORD=mariadbpwd mariadb
 
-
+#
 # POSTGRESQL
 # Criando o volume para persisitr os dados do banco PostgreSQL
 $ docker volume create postgre_vol
@@ -46,7 +46,7 @@ $ docker run  -d \
 -e POSTGRES_PASSWORD=postgrepwd \
 -e POSTGRES_USER=postgreuser postgres
 
-
+#
 # REDIS
 # Criando o volume para persistir os dados do Redis
 $ docker volume create redis_vol
