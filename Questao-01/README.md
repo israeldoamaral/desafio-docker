@@ -2,7 +2,7 @@
 # MONGODB
 # Criando o Volume para persistir os dados do banco
 
-docker volume create mongo_vol
+$ docker volume create mongo_vol
 
 - Criando a rede para o MondoDB
 docker network create mongodb_net
