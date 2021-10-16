@@ -1,14 +1,13 @@
 
 # MONGODB
 # Criando o Volume para persistir os dados do banco
-
 $ docker volume create mongo_vol
 
 # Criando a rede para o MondoDB
 $ docker network create mongodb_net
 
 # Criando o container do MongoDb
-docker container run -d \
+$ docker container run -d \
 -e MONGO_INITDB_ROOT_USERNAME=mongouser \
 -e MONGO_INITDB_ROOT_PASSWORD=mongopwd \
 -v mongo_vol:/data/db \
