@@ -1,4 +1,3 @@
-
 # MONGODB
 # Criando o Volume para persistir os dados do banco MongoDB
 $ docker volume create mongo_vol
@@ -16,7 +15,7 @@ $ docker container run -d \
 --name mongodb \
 mongo:4.4.3
 
-
+#
 # MARIADB
 # Criando volume para persistir os dados do banco MariaDB
 $ docker volume create mariadb_vol
