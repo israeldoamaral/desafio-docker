@@ -4,8 +4,8 @@
 
 $ docker volume create mongo_vol
 
-- Criando a rede para o MondoDB
-docker network create mongodb_net
+# Criando a rede para o MondoDB
+$ docker network create mongodb_net
 
 # Criando o container do MongoDb
 docker container run -d \
