@@ -16,6 +16,7 @@ $ docker container run -d \
 --name mongodb \
 mongo:4.4.3
 
+
 # MARIADB
 # Criando volume para persistir os dados do banco MariaDB
 $ docker volume create mariadb_vol
@@ -29,6 +30,7 @@ $ docker container run -d \
 --name mariadb \
 -v mariadb_vol:/var/lib/mysql \
 -e MARIADB_ROOT_PASSWORD=mariadbpwd mariadb
+
 
 # POSTGRESQL
 # Criando o volume para persisitr os dados do banco PostgreSQL
@@ -44,6 +46,7 @@ $ docker run  -d \
 -v postgre_vol:/var/lib/postgresql/data \
 -e POSTGRES_PASSWORD=postgrepwd \
 -e POSTGRES_USER=postgreuser postgres
+
 
 # REDIS
 # Criando o volume para persistir os dados do Redis
