@@ -1,4 +1,4 @@
-# conversao-peso
+# Crinado a imagem do app conversao-peso
 
 $ cd ConversaoPeso.Web
 
