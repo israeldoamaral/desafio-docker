@@ -1,1 +1,1 @@
-# Resposta da questão 3
+# Respostas da questão 3
