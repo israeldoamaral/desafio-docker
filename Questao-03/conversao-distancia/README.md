@@ -1,4 +1,4 @@
-# conversao-distancia
+# Criando imagem do app conversao-distancia
 
 docker build -t israeldoamaral/conversao-distancia:v1 .
 
