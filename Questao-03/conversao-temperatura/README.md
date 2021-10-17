@@ -1,4 +1,4 @@
-# conversao-temperatura
+# Criando imagem do app conversao-temperatura
 
 $ docker build -t israeldoamaral/conversao-temperatura:v1 .
 
