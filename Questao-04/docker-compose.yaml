@@ -1,0 +1,41 @@
+version: '3.3'
+
+volumes:
+  mongo_vol:
+
+networks:
+  rotten_net:
+    driver: bridge
+
+services:
+  api:
+    image: israeldoamaral/questao4:v1
+    build:
+      dockerfile: ./Dockerfile
+      context: ./src
+    container_name: api
+    ports:
+      - "8080:5000"
+    networks:
+      - rotten_net
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_DB: "admin"
+      MONGODB_HOST: "mongodb"
+      MONGODB_PORT: "27017"
+      MONGODB_USERNAME: "mongouser"
+      MONGODB_PASSWORD: "mongopwd"
+
+  mongodb:
+    image: mongo:4.4.6
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - rotten_net
+    volumes:
+      - mongo_vol:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongouser
+      MONGO_INITDB_ROOT_PASSWORD: mongopwd
