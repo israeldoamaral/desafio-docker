@@ -1,0 +1,83 @@
+version: '3.3'
+
+services:
+  mongodb:
+    image: mongo:${MONGO_TAG}
+    restart: always
+    container_name: mongodb
+    ports:
+      - "29017:27017"
+    networks:
+      - rp_net
+    volumes:
+      - mongo_vol:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+
+  postgredb:
+    image: postgres:${POSTGRESQL_TAG}
+    restart: always
+    container_name: postgredb
+    ports:
+      - "5432:5432"
+    networks:
+      - rp_net
+    volumes:
+      - postgre_vol:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+  review-ms:
+    image: israeldoamaral/review-ms:${REVIEW_TAG_IMAGE}
+    restart: always
+    container_name: review-ms
+    ports:
+      - 8282:80
+    networks:
+      - rp_net
+    depends_on:
+      - postgredb
+    environment:
+      ConnectionStrings__MyConnection: ${CONNECTIONSTRINGS_MYCONNECTION}
+  
+  movie-ms:
+    image: israeldoamaral/movie-ms:${MOVIE_TAG_IMAGE}
+    restart: always
+    container_name: movie-ms
+    ports:
+      - "8181:8181"
+    networks:
+      - rp_net
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_URI: ${MONGODB_URI}
+
+  app-ms:
+    image: israeldoamaral/app-ms:${APP_TAG_IMAGE}
+    restart: always
+    container_name: app-ms
+    ports:
+      - "5000:5000"
+    networks:
+      - rp_net
+    depends_on:
+      - movie-ms
+      - review-ms
+    environment:
+      MOVIE_SERVICE_URI: ${MOVIE_SERVICE_URI}
+      REVIEW_SERVICE_URI: ${REVIEW_SERVICE_URI}
+
+volumes:
+  mongo_vol:
+     name: ${MONGO_VOLUME_NAME}
+  postgre_vol:
+     name: ${POSTGRE_VOLUME_NAME}
+
+networks:
+  rp_net:
+    name: ${NETWORK_NAME}
+    driver: ${NETWORK_TYPE}
