@@ -2,7 +2,7 @@
 
 
 ## Projeto
-É baseado em uma aquitetura de Microsserviços e depende de mais 2 projetos pra funcionar
+Baseado em uma aquitetura de Microsserviços e depende de mais 2 projetos pra funcionar
 
 - [movie-ms]
 - [resview-ms]
