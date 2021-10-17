@@ -1,4 +1,4 @@
-# Executando Projeto Rotten Tomatoes Microsserviços com Docker-Compose
+# Executando Projeto Rotten Tomatoes Microsserviços com Docker-Compose baseado em arquivo de enviroment
 
 
 ## Projeto
