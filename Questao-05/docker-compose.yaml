@@ -26,6 +26,8 @@ services:
         - "8000:80"
       networks:
         - wordpress_net
+      depends_on:
+      - db
       restart: always
       environment:
         WORDPRESS_DB_HOST: db:3306
