@@ -2,13 +2,13 @@
 
 #
 # MONGODB
-###### Criando o Volume para persistir os dados do banco MongoDB
+###### - Criando o Volume para persistir os dados do banco MongoDB
 $ docker volume create mongo_vol
 
-###### Criando a rede para o MondoDB
+###### - Criando a rede para o MondoDB
 $ docker network create mongodb_net
 
-###### Criando o container do MongoDb
+###### - Criando o container do MongoDb
 $ docker container run -d \
 -e MONGO_INITDB_ROOT_USERNAME=mongouser \
 -e MONGO_INITDB_ROOT_PASSWORD=mongopwd \
@@ -18,7 +18,7 @@ $ docker container run -d \
 --name mongodb \
 mongo:4.4.3
 
-###### Criando o MONGO-EXPRESS - Ferramenta web para administrar o mongodb
+###### - Criando o MONGO-EXPRESS - Ferramenta web para administrar o mongodb
 $ docker run -d --name mongo_express -p 8081:8081 -e ME_CONFIG_MONGODB_URL="mongodb://mongouser:mongopwd@mongodb:27017/admin"  mongo-express
 
 #
