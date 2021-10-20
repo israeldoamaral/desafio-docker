@@ -2,16 +2,12 @@
 # Criando o Volume para persistir os dados do banco MongoDB
 $ docker volume create mongo_vol
 
-# Criando a rede para o MondoDB
-$ docker network create mongodb_net
-
 # Criando o container do MongoDb
 $ docker container run -d \
 -e MONGO_INITDB_ROOT_USERNAME=mongouser \
 -e MONGO_INITDB_ROOT_PASSWORD=mongopwd \
 -v mongo_vol:/data/db \
 -p 27017:27017 \
---network mongodb_net \
 --name mongodb \
 mongo:4.4.3
 
@@ -19,9 +15,6 @@ mongo:4.4.3
 # MARIADB
 # Criando volume para persistir os dados do banco MariaDB
 $ docker volume create mariadb_vol
-
-# Criando a rede para o MariaDB
-$docker network create mariadb_net
 
 # Criando o container MariaDB
 $ docker container run -d \
@@ -35,9 +28,6 @@ $ docker container run -d \
 # Criando o volume para persistir os dados do banco PostgreSQL
 $ docker volume create postgre_vol
 
-# Criando a rede para o PostgreSql
-$ docker network create postgre_net
-
 # Crinado o conatiner PostgreSQL
 $ docker run  -d \
 --name postgresql \
@@ -50,9 +40,6 @@ $ docker run  -d \
 # REDIS
 # Criando o volume para persistir os dados do Redis
 $ docker volume create redis_vol
-
-# Criando a rede para o Redis
-$ docker network create redis_net
 
 # Criando o container Redis
 $ docker run -d \
