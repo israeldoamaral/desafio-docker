@@ -17,7 +17,7 @@ $ docker container run -d \
 --name mongodb \
 mongo:4.4.3
 
-###### - Criando o MONGO-EXPRESS - Ferramenta web para administrar o mongodb
+###### - Criando o MONGO-EXPRESS - Ferramenta web para administrar o MongoDB
 $ docker run -d --name mongo_express --network mongodb_net -p 8081:8081 -e ME_CONFIG_MONGODB_URL="mongodb://mongouser:mongopwd@mongodb:27017/admin"  mongo-express
 
 #
@@ -32,12 +32,11 @@ $ docker network create mariadb_net
 $ docker container run -d \
 -p 3306:3306 \
 --name mariadb \
+--network mariadb_net \
 -v mariadb_vol:/var/lib/mysql \
 -e MARIADB_ROOT_PASSWORD=mariadbpwd mariadb
 
-
-#
-# MARIADB
+###### - Criando PHPMYADMIN - Ferramenta web para administrar o MariaDB
 $ docker container run --name phpmyadmin -p 8080:80 --network mariadb_net -e PMA_HOST=mariadb phpmyadmin
 
 
