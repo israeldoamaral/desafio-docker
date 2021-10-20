@@ -72,7 +72,21 @@ $ docker run -d --name pgadmin4 --network postgre_net -p 5050:5050 fenglc/pgadmi
     Usarname: postgreuser \
     Password: postgrepwd
 
-
 #
 # REDIS
+###### - Criando o volume para persistir os dados do Redis
+$ docker volume create redis_vol
+
+###### - Criando a rede para o Redis
+$ docker network create redis_net
+
+###### - Criando o container Redis
+$ docker run -d \
+--name redisdb \
+-p 6379:6379 \
+--network redis_net \
+-v redis_vol:/data \
+redis redis-server --save 60 1 --loglevel warning
+
+###### - Criando redis-commander - ferramenta web para administrar REDIS
 $ docker run -d --name redis-commander --env REDIS_HOSTS=redisdb --network redis_net -p 8081:8081 rediscommander/redis-commander:latest
