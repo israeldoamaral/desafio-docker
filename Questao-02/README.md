@@ -61,9 +61,9 @@ $ docker run -d --name pgadmin4 --network postgre_net -p 5050:5050 fenglc/pgadmi
 
 - Dados de acesso
 
-Host: <ip da sua máquina>
-Usarname: pgadmin4@pgadmin.org
-Password: admin
+    Host: <ip da sua máquina:5050>
+    Usarname: pgadmin4@pgadmin.org
+    Password: admin
 
 
 #
