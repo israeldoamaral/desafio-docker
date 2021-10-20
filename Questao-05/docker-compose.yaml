@@ -25,7 +25,7 @@ services:
       networks:
         - wordpress_net
       depends_on:
-      - db
+        - db
       restart: always
       environment:
         WORDPRESS_DB_HOST: db:3306
