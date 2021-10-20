@@ -39,13 +39,32 @@ $ docker container run -d \
 ###### - Criando PHPMYADMIN - Ferramenta web para administrar o MariaDB
 $ docker container run --name phpmyadmin -p 8080:80 --network mariadb_net -e PMA_HOST=mariadb phpmyadmin
 
-
-
-
-
-#
 # POSTGRESQL
+###### - Criando o volume para persistir os dados do banco PostgreSQL
+$ docker volume create postgre_vol
+
+###### - Criando a rede para o PostgreSQL
+$ docker network create postgre_net
+
+###### - Crinado o conatiner PostgreSQL
+$ docker run  -d \
+--name postgresql \
+-p 5432:5432 \
+--network postgre_net \
+-v postgre_vol:/var/lib/postgresql/data \
+-e POSTGRES_PASSWORD=postgrepwd \
+-e POSTGRES_USER=postgreuser \
+ postgres
+
+###### - Criando PGADMIND - Ferramenta we para administrar o PostgreSQL
 $ docker run -d --name pgadmin4 --network postgre_net -p 5050:5050 fenglc/pgadmin4
+
+- Dados de acesso
+
+Host: <ip da sua máquina>
+Usarname: pgadmin4@pgadmin.org
+Password: admin
+
 
 #
 # REDIS
