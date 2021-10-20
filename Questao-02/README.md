@@ -59,11 +59,18 @@ $ docker run  -d \
 ###### - Criando PGADMIND - Ferramenta we para administrar o PostgreSQL
 $ docker run -d --name pgadmin4 --network postgre_net -p 5050:5050 fenglc/pgadmin4
 
-- Dados de acesso
+- Dados para acesso
 
-    Host: <ip da sua máquina:5050> \
-    Usarname: pgadmin4@pgadmin.org \
+    http://localhost:5050
+
+    Email Address: pgadmin4@pgadmin.org \
     Password: admin
+
+- Dados para configação do pgAdmin
+
+    Hostname/address: <ip da sua máquina> \
+    Usarname: postgreuser \
+    Password: postgrepwd
 
 
 #
