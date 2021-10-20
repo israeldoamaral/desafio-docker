@@ -18,7 +18,7 @@ $ docker container run -d \
 --name mongodb \
 mongo:4.4.3
 
-## MONGO-EXPRESS - Ferramenta web para administrar o mongodb
+###### Criando o MONGO-EXPRESS - Ferramenta web para administrar o mongodb
 $ docker run -d --name mongo_express -p 8081:8081 -e ME_CONFIG_MONGODB_URL="mongodb://mongouser:mongopwd@mongodb:27017/admin"  mongo-express
 
 #
